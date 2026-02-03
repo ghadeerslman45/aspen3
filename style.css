@@ -1,0 +1,3166 @@
+*, *:before, *:after { 
+    box-sizing: border-box; /* Prevent padding from enlarging elements */
+}
+
+* {
+    margin: 0; /* Remove extra margin from everything (body, headings, etc...) */
+}
+
+img {
+    max-width: 100%; /* Don't let images be more than their container's width */
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word; /* Break long words in headings & paragraphs */
+}
+
+ul { /* Don't style unordered lists (good for nav menus!) */
+    padding: 0;
+    list-style: none;
+}
+
+a { /* No blue links! */
+    color: inherit;
+}
+
+
+@font-face {
+  font-family: "UniversBlack";
+  src: url("font/Univers-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Univers65BoldOblique";  /* the name you’ll use in CSS */
+  src: url("font/Univers-BoldOblique.woff2") format("woff2");
+  font-weight: 700;
+  font-style: oblique;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "TradeGothicBoldCondObl";
+  src: url("font/TradeGothicLT-BoldCondTwentyObl.woff2") format("woff2");
+  font-weight: 700;       /* bold weight */
+  font-style: oblique;    /* oblique style */
+  font-display: swap;     /* ensures fallback until loaded */
+}
+
+@font-face {
+  font-family: "CheltenhamBookCond";
+  src: url("fonts/CheltenhamStd-BookCond.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CheltenhamLightCond";
+  src: url("font/CheltenhamStd-LightCond.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CheltenhamStd";
+  src: url("CheltenhamStd-BookItalic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "CheltenhamStd";
+  src: url("../fonts/CheltenhamStd-BoldCondensed.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: condensed;
+}
+
+@font-face {
+  font-family: "CheltenhamStd";
+  src: url("../fonts/CheltenhamStd-BoldCondensedItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: condensed;
+}
+
+@font-face {
+  font-family: "PermanentMarker";
+  src: url("font/PermanentMarker-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Apply font to ticker and nav */
+.top-nav {
+  font-family: 'UniversBlack', monospace; /* fallback: monospace */
+}
+
+
+body {
+  margin: 0;
+  font-family: "CheltenhamLightCond", serif;
+  background-color: #f4f4f4;
+  overflow-x: hidden;
+}
+
+.top-nav,
+.page-header,
+.full-width-text {
+  width: 100%;
+}
+
+
+
+/* TOP NAV BAR */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  background: #f4f4f4;
+  border-bottom: 4px dashed #000;
+
+  z-index: 1000;
+}
+
+
+/* NAV ITEMS */
+.nav-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "UniversBlack", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: #000;
+  text-decoration: none;
+
+  position: relative;
+  cursor: pointer;
+
+  transition: flex 0.35s ease;
+}
+
+/* DASHED VERTICAL SEPARATORS */
+.nav-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+
+  transform: translateY(-50%);
+  height: 28px;
+  border-right: 4px dashed #000;
+}
+
+/* HOVER EXPAND */
+.top-nav:hover .nav-item {
+  flex: 1;
+}
+
+.top-nav:hover .nav-item:hover {
+  flex: 2.2;
+}
+
+/* ACTIVE PAGE (Aspen) */
+.nav-item.active {
+  flex: 2.2;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+
+
+
+/* --- BASE STYLES --- */
+.top-nav {
+  font-family: 'UniversBlack', monospace; /* fallback: monospace */
+}
+
+body {
+  margin: 0;
+  font-family: "CheltenhamLightCond", serif;
+  background-color: #f4f4f4;
+  overflow-x: hidden;
+}
+
+.top-nav,
+.page-header,
+.full-width-text {
+  width: 100%;
+}
+
+/* --- TOP NAV BAR --- */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  background: #f4f4f4;
+  border-bottom: 4px dashed #000;
+  z-index: 1000;
+  padding: 0 10px; /* small padding for mobile */
+  box-sizing: border-box;
+}
+
+/* --- NAV ITEMS --- */
+.nav-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "UniversBlack", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  transition: flex 0.35s ease, font-size 0.25s ease;
+}
+
+/* DASHED VERTICAL SEPARATORS */
+.nav-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 28px;
+  border-right: 4px dashed #000;
+}
+
+/* HOVER EXPAND */
+.top-nav:hover .nav-item {
+  flex: 1;
+}
+
+.top-nav:hover .nav-item:hover {
+  flex: 2.2;
+}
+
+/* ACTIVE PAGE (Aspen) */
+.nav-item.active {
+  flex: 2.2;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+  .nav-item {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+  }
+
+  .top-nav {
+    height: 44px;
+  }
+
+  .nav-item:not(:last-child)::after {
+    height: 20px;
+    border-right-width: 2px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .top-nav {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 5px;
+  }
+
+  .nav-item {
+    flex: 1 1 50%; /* two items per row */
+    font-size: 13px;
+    padding: 8px 0;
+  }
+
+  .nav-item:not(:last-child)::after {
+    display: none; /* remove separators on mobile */
+  }
+
+  .top-nav:hover .nav-item:hover {
+    flex: 1 1 100%; /* hover expands full width on mobile */
+  }
+}
+
+
+
+
+@media screen and (min-width: 1920px) {
+  .top-nav {
+    justify-content: center;
+  }
+
+  .top-nav-inner {
+    display: flex;
+    width: 1600px; /* visual max width */
+  }
+
+  .nav-item {
+    font-size: 19px;
+  }
+}
+
+
+
+
+/* home page */
+/* Page header */
+/* ---------------- RESET ---------------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "CheltenhamLightCond", serif;
+}
+
+/* ---------------- PAGE HEADER ---------------- */
+
+.page-header {
+  width: 100vw;
+  position: relative;
+  z-index: 1;
+  padding: 55px 0 10px 210px;
+}
+
+.page-header h1 {
+  font-family: "UniversBlack", sans-serif;
+  font-size: 45px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ---------------- GRID LAYOUT ---------------- */
+
+.grid-section {
+  display: grid;
+  grid-template-columns: 1.4fr 1.6fr 2fr; /* increase right column */
+  column-gap: 3px; 
+  width: 100%;
+ margin: 10px 5px 10px 5px ;
+  align-items: start;
+}
+
+
+
+/* ---------------- LEFT COLUMN ---------------- */
+/* ---------------- LEFT COLUMN ---------------- */
+.col-left {
+  display: grid;
+  grid-template-columns: auto 1fr; /* left column + image */
+  column-gap: 10px;
+  align-items: start;              /* align top */
+  padding: 0;                      /* remove extra spacing */
+  align-items: stretch;
+  
+}
+
+/* wrapper for vertical text + ticker */
+.vertical-wrapper {
+  display: flex;
+  flex-direction: row;      /* horizontal inline */
+  align-items: flex-start;  /* align top of vertical text + ticker */
+  gap: 10px;                /* space between vertical text and ticker */
+  position: relative;       /* needed for pseudo-element line */
+  margin-top: -64px;
+}
+
+/* vertical text */
+.left-vertical-text {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  font-family: "Univers65BoldOblique", sans-serif;
+  font-size: 48px;
+  line-height: 1.4;
+  white-space: nowrap;
+  margin: 0;
+  padding-top: -80px;       /* aligns top with header text padding */
+}
+
+/* horizontal line under vertical text + ticker */
+.vertical-wrapper::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -10px;             /* just under vertical-wrapper */
+  left: 0;
+  width: 90%;                /* line width */
+  height: 4px;
+  background-color: black;
+}
+
+/* vertical ticker */
+.side-ticker {
+  height: 500px;
+  overflow: hidden;
+}
+
+.side-ticker-track {
+  display: flex;
+  flex-direction: column;
+  writing-mode: vertical-rl;
+  gap: 28px;
+  animation: ticker-lines 12s linear infinite;
+}
+
+.side-ticker-track span {
+  font-family: "PermanentMarker", cursive;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.left-heading {
+  font-family: "UniversBlack", sans-serif;
+  font-size: 17px;
+  line-height: 1.2;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  margin-top: 13px;
+padding-left: 20px;
+
+}
+
+.left-text {
+  margin-top: 2px;
+  font-size: 15px;
+  line-height: 1.2;
+  text-align: left;
+  max-width: 183px;
+  padding-left: 20px;
+  
+}
+
+/* image */
+.image-left {
+  grid-column: 2;
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  display: block;
+  margin-left: -13px;
+}
+
+
+
+.side-ticker {
+  grid-column: 2;
+  height: 450px;
+  overflow: hidden;
+  margin-top: -8px; /* same as vertical text */
+}
+
+.side-ticker-track {
+  display: flex;
+  flex-direction: column;
+  writing-mode: vertical-rl;
+  gap: 28px;
+  animation: ticker-lines 12s linear infinite;
+}
+
+.side-ticker-track span {
+  font-family: "PermanentMarker", sans-serif;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+
+
+
+/* ---------------- MIDDLE COLUMN ---------------- */
+
+.col-middle {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px; /* very tight to left */
+}
+
+.image-middle {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.middle-text {
+    font-family: "PermanentMarker", sans-serif;
+  grid-column: 1 / -1;
+  margin-top: 5px;
+  font-size: 18px;
+
+  line-height: 1.45;
+}
+
+/* ---------------- RIGHT COLUMN ---------------- */
+/* ---------------- RIGHT COLUMN ---------------- */
+.col-right {
+  display: grid;
+  grid-template-columns: 1fr auto;  /* ticker + image */
+  column-gap: 5px;                  /* small gap between ticker and image */
+  align-items: stretch;
+  position: relative;
+  z-index: 5;
+  margin: -70px  5px -30px 25px ;
+  padding: 0;                       /* remove padding */
+}
+
+.right-media {
+  position: relative;
+  width: 100%;      /* fill column */
+  height: 100%;     /* optional, depends on your design */
+  display: block;
+  margin: 0;        /* remove any left/right margin */
+}
+
+.image-right {
+  width: 100%;      /* fill the column */
+  height: 620px;    /* keep your desired height */
+  object-fit: cover;
+  display: block;
+  margin: 0;        /* remove extra spacing */
+}
+
+.right-vertical-ticker {
+  position: absolute;
+  left: 0;          /* stick to the very left of the column */
+  top: 0;
+  height: 100%;
+  width: 60px;      /* ticker width */
+  overflow: hidden;
+}
+
+.right-vertical-ticker {
+  position: absolute;      
+  left: -25px;             /* closer to left edge of image */
+  top: 0;                  
+  height: 100%;            
+  width: 60px;             
+  overflow: hidden;
+}
+
+
+
+
+
+.right-vertical-ticker .ticker-track {
+  height: 90%;               
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  writing-mode: vertical-rl;
+  gap: 28px;
+
+  animation: ticker-lines 14s linear infinite;
+}
+
+
+.right-vertical-ticker span {
+  font-family: "PermanentMarker", sans-serif;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+
+
+/* right paragraph */
+.right-text {
+    font-family: "PermanentMarker", sans-serif;
+  grid-column: 1 / -1;
+  margin-top: 5px;
+  font-size: 18px;
+  line-height: 1.4;
+  max-width: 90%;
+}
+
+/* ---------------- FULL WIDTH TEXT ---------------- */
+
+/* ---------------- FEATURE CONTAINER ---------------- */
+.feature-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;               /* space between items */
+  margin: 10px 20px 30px 20px;
+  width: 95vw;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+/* ---------------- FEATURE ITEM ---------------- */
+.feature-item {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* ---------------- FEATURE LINK ---------------- */
+.feature-link {
+  display: grid;
+  grid-template-columns: 1fr 250px 4fr;
+  gap: 0 20px;
+  text-decoration: none;
+  position: relative;
+}
+.feature-link::after {
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: black;
+  transition: width 0.3s ease;
+}
+
+.feature-item::before {
+  content: "";
+  display: block;
+  width: 50%;           /* line spans 80% of container */
+  height: 4px;          /* line thickness */
+  background-color: black; /* line color */
+  margin-bottom: 6px;  /* space between line and feature content */
+}
+
+/* ---------------- HEADER ---------------- */
+.feature-header {
+  width: 340px;
+  min-width: 100px;
+}
+
+.feature-super {
+  font-family: "Univers-Black", sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  margin: 5px 0 10px 0;
+}
+
+.feature-title {
+  font-family: "Univers-Black", sans-serif;
+  font-size: 35px;
+  line-height: 1.15;
+  margin: 0 0 10px 0;
+}
+
+.feature-sneak {
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: justify;
+  text-align-last: left;
+  margin: 0 0 24px 0;
+}
+
+/* ---------------- THUMBNAIL ---------------- */
+.feature-thumbnail {
+  width: 230px;
+  height: 180px;
+  overflow: hidden;
+  margin: 0 0 5px 15px;
+}
+
+.feature-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------------- CONTENT ---------------- */
+.feature-content {
+  width: 680px;
+  min-width: 300px;
+}
+
+.feature-info {
+  font-family: "Permanent Marker", cursive;
+  font-size: 16px;
+  margin: 0 0 10px 0;
+}
+
+.feature-quote {
+  font-family: "Univers-Black", sans-serif;
+  font-size: 30px;
+  line-height: 1.15;
+  margin: 0 0 5px 0;
+}
+
+.feature-excerpt {
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: justify;
+  text-align-last: left;
+  margin: 0;
+}
+
+
+/* ---------------- TICKER ANIMATION ---------------- */
+
+@keyframes ticker-lines {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+
+
+
+
+
+
+
+/* STRIP (the moving content) */
+.image-strip {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+  
+  /* control animation speed via variable */
+  --speed: 1;  /* default speed multiplier */
+  animation-play-state: running;
+}
+
+
+
+.image-viewport {
+  position: relative;
+  width: 100%;
+  height: 80vh;   /* flexible height */
+  overflow: hidden;
+}
+
+.image-viewport.motion-left {
+  height: 560px;  /* matches .image-left */
+}
+
+.image-viewport.motion-middle {
+  height: 500px;  /* matches .image-middle */
+}
+
+.image-viewport.motion-right {
+  height: 620px;  /* matches .image-right */
+}
+
+
+.image-strip img {
+  width: 100%;
+  height: 100%;  /* follow parent viewport */
+  object-fit: cover;
+  display: block;
+}
+
+.col-left, .col-middle, .col-right {
+  height: auto;  /* allow to grow with content */
+}
+
+
+.motion-left .image-strip {
+  animation: scroll-up 30s linear infinite;  /* default animation */
+}
+
+.motion-left:hover .image-strip {
+  animation-duration: 3s; /* faster on hover */
+}
+
+.motion-middle .image-strip {
+  animation: scroll-down 20s linear infinite;
+}
+
+.motion-middle:hover .image-strip {
+  animation-duration: 5s; /* faster on hover */
+}
+
+.motion-right .image-strip {
+  animation: scroll-up 30s linear infinite;
+}
+
+.motion-right:hover .image-strip {
+  animation-duration: 10s; /* faster on hover */
+}
+
+@keyframes scroll-down {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@keyframes scroll-up {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+
+
+
+/* ---------------- NEWSPAPER GRID ---------------- */
+/* ===== PAGE TITLE ===== */
+.full-width-title {
+  width: 100%;
+  font-family: "Univers65BoldOblique", sans-serif;
+  font-size: 52px;
+  line-height: 1.05;
+  font-weight: 700;
+  text-align: left;
+  color: #000;
+
+  margin: 0 0 24px 0;   /* space below title */
+  padding-left: 20px;  /* align with grid */
+}
+
+/* ===== MAIN HEADLINE ===== */
+.headline-title {
+  font-family: "UniversBlack", sans-serif;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: #000;
+
+  margin: 0 0 6px 0;
+}
+
+/* ===== SUB HEADLINE ===== */
+.headline-subtitle {
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 400;
+  color: #111;
+
+  margin: 0 0 12px 0;
+}
+/* ===== BODY TEXT ===== */
+.headline-text{
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #111;
+  
+  text-align: justify;
+  text-align-last: left;
+
+  margin: 0 0 12px 0;
+}
+.newspaper-grid p {
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #111;
+   text-indent: 15px;
+  text-align: justify;
+  text-align-last: left;
+
+  margin: 0 0 3px 0;
+}
+
+/* ===== SMALL HEADLINES ===== */
+.headline-small h3 {
+  font-family: "UniversBlack", sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+ 
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+
+  margin: 0 0 6px 0;
+}
+
+/* ===== IMAGE CAPTIONS ===== */
+.image-caption {
+  font-family: "PermanentMarker", sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000;
+  margin-top: -2px;
+}
+/* ===== INLINE HEADLINE IMAGE ===== */
+.headline-inline-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* ===== HEADLINE TEXT BLOCK ===== */
+.headline-text-block {
+  display: flex;
+  flex-direction: column;
+  max-width: 520px;
+  
+}
+
+
+
+
+/* Full-width horizontal title */
+.full-width-title {
+  width: 100%;               /* span entire page */
+  text-align: left;        /* center the text horizontally */
+  font-size: 52px;           /* adjust size as needed */
+  font-weight: bold;
+  margin: 5px 0;            /* spacing above and below */
+  font-family: "Univers65BoldOblique", sans-serif;
+  color: #000;               /* text color */
+  margin-top: -45px ;
+}
+
+/* Flex wrapper for inline image in main headline */
+.newspaper-grid .headline-main-flex {
+  display: flex;
+  align-items: flex-start; /* align top of text and image */
+  gap: 10px;               /* space between text and image */
+  /* text first, image second */
+}
+
+.newspaper-grid .headline-inline-image {
+  width: 80px;    /* image width */
+  height: 80px;   /* image height */
+  object-fit: cover;
+  flex-shrink: 0; /* prevent shrinking */
+}
+
+.newspaper-grid .headline-text-block {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+.newspaper-container {
+  margin: -20px 15px; /* space from other content */
+
+}
+
+.newspaper-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 10px;
+}
+/* Bigger images inside small headlines */
+.headline-small .image-content {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.newspaper-grid .grid-block {
+ 
+  padding: 5px;
+ 
+  box-sizing: border-box;
+}
+
+.newspaper-grid .headline-main {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+
+.newspaper-grid .image-feature {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.newspaper-grid .headline-secondary {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.newspaper-grid .headline-small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+
+
+.newspaper-grid h2,
+.newspaper-grid h3 {
+  margin: 5px 0;
+}
+/* ================= IMAGE SIZE CONTROL ================= */
+
+/* Main headline inline image */
+.headline-inline-image {
+  width: 260px !important;
+  height: auto !important;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Feature image */
+.image-feature .image-content {
+  width: 500px;
+  height: auto !important;
+  object-fit: cover;
+}
+
+
+
+/* ================= RESPONSIVE ================= */
+
+
+
+
+/* responsive home page */
+
+  
+
+
+
+
+
+/* ---------------- RESPONSIVE LARGE SCREENS ---------------- */
+@media (min-width: 1920px) {
+  
+  
+
+  /* NEWSPAPER GRID */
+  .full-width-title {
+    font-size: 80px;
+    padding-left: 40px;
+  }
+
+  .headline-title {
+    font-size: 36px;
+  }
+
+  .headline-subtitle {
+    font-size: 30px;
+  }
+
+  .headline-text {
+    font-size: 18px;
+  }
+
+  .headline-small h3 {
+    font-size: 20px;
+  }
+
+  .headline-inline-image {
+    width: 400px;
+    height: auto;
+  }
+
+  .image-feature .image-content {
+    width: 700px;
+  }
+
+  .newspaper-grid {
+    gap: 20px;
+  }
+}
+
+
+/* صفحة boxes*/
+.title-item-trigger-header {
+  width: 340px;   /* adjust this number */
+  min-width: 100px;
+}
+
+.title-item-trigger-content {
+  width: 680px;   /* adjust this */
+  min-width: 300px ;
+}
+
+
+.titles-container {
+  width: 100%;
+}
+
+
+.title-item-triggger {
+  position: relative;
+}
+
+.title-item-triggger::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: black;
+  transition: width 0.3s ease;
+}
+
+.title-item-triggger:hover::after {
+  width: 100%;
+}
+
+
+
+
+.title-item-trigger-super {
+  font-family: "Univers-Black", sans-serif;
+  align-items: start;
+  font-size: 30px;
+  line-height: 1;
+  margin: 5px 0 10px 0;
+}
+
+.title-item-trigger-title {
+  font-family: "Univers-Black", sans-serif;
+  align-items: start;
+  font-size: 34px; /* smaller than 40px */
+  line-height: 1.15;
+  margin: 0 0 10px 0;
+}
+.title-item-trigger-sneak {
+   font-family: "CheltenhamLightCond", serif;
+  font-size: 18px;
+  line-height: 1.1;
+  text-align: justify;
+  text-align-last: left;
+  margin: 0 0px 24px 0;
+}
+.title-item-trigger-thumbnail {
+  align-items: start;
+  width: 230px;
+  height: 180px;
+  overflow: hidden;
+  margin: 0 0 5px 15px;
+}
+
+.title-item-trigger-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.title-item-trigger-info {
+  font-family: "Permanent Marker", cursive;
+  align-items: start;
+  font-size: 16px;
+  margin: 0 0 10px 0;
+}
+.title-item-trigger-quote {
+  font-family: "Univers-Black", sans-serif;
+  font-size: 30px;
+  line-height: 1.15;
+  margin: 0 0 5px 0;
+}
+
+.title-item-trigger-excerpt {
+   font-family: "CheltenhamLightCond", serif;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: justify;
+  text-align-last: left;
+  margin: 0;
+}
+
+
+
+
+.titles-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;       /* space between titles */
+  margin: 70px  20px 30px  20px; /* remove horizontal margin for full width */
+  align-items: flex-start;
+  width: 95vw;      /* ensure container is full viewport width */
+  box-sizing: border-box;
+}
+
+.title-item {
+  position: relative;
+  display: inline-block;  
+  cursor: pointer;
+  width: 100%;        /* take full container width */
+}
+
+
+.title-img {
+  display: block;
+  width: 90%;         /* full width of title-item */
+  min-width: 320px;    /* minimum width for small screens */
+  height: auto;    
+  transition: 0.3s ease;
+}
+
+.title-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: rgb(0, 0, 0);
+  transition: width 0.3s ease;
+}
+
+
+/* ITEM TITLE TRIGGER */
+
+.title-item-triggger {
+  display: grid;
+  grid-template-columns: 1fr 250px 4fr;
+  gap: 0 20px;
+  text-decoration: none;
+}
+
+
+
+
+
+/* vertical column*/
+
+.details-grid {
+  display: grid;
+ grid-template-columns: 3fr 1.5fr 2fr; 
+  gap: 40px;
+  align-items: start;
+  
+}
+
+.details-meta {
+  position: relative;
+}
+
+
+.details-meta-inner {
+  position: sticky;
+ 
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+   margin: 0 -100px 25px 0;
+}
+
+/* 🔹 Vertical title */
+.meta-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: "Permanent Marker", cursive;
+  font-size:20px;
+ 
+}
+
+/* 🔹 Container for the 3 vertical columns */
+.meta-columns {
+  display: flex;
+  gap: 8px;                 /* space between columns */
+}
+
+/* 🔹 Each column */
+.meta-col {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  max-height: 300px;         /* optional control */
+  
+}
+
+/* Headings inside columns */
+.meta-col h3 {
+font-family: "Univers-Black", sans-serif;
+  font-weight: 700;
+  font-size: 15px ;
+ 
+}
+.meta-col h2 {
+  font-family: "Univers-Black", sans-serif;
+  font-size: 21px ;
+ 
+}
+
+/* Paragraph text */
+.meta-col p {
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 14px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+
+
+
+.details-meta-inner {
+  position: sticky;          /* stays visible while scrolling inside parent */
+  top: 0;                    /* distance from top of viewport */
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: "Univers-Black", sans-serif;
+  font-size: 18px;
+  margin-left: 85px;
+  
+}
+
+.details {
+  max-height: 0;
+  overflow: hidden;  /* collapsed by default */
+  transition: max-height 0.5s ease;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.details-grid {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  /* set height for scrollable columns */
+  max-height: 100vh; 
+}
+
+.details-main {
+  flex: 3; 
+  overflow-y: auto;  /* scrollable content */
+  max-height: 100vh;
+  
+}
+
+.details-images {
+  flex: 2;
+  overflow-y: auto;  /* scrollable images column */
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.details-images img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+.details-meta {
+  flex: 1;
+  position: relative; /* container for sticky */
+}
+
+.details-meta-inner {
+  position: sticky;
+  top: 0;              /* sticks at top of details-grid */
+}
+
+
+.details-main {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+}
+
+/* the vertical line */
+.scroll-line {
+  position: sticky;
+  top: 0vh;              /* when it starts sticking */
+  align-self: start;
+
+  height: 120px;          /* visible length */
+  width: 4px;
+  margin-left: 1px;
+
+  background: black;
+    transform-origin: top;
+  height: 100%;
+  
+   
+
+}
+.scroll-line {
+  transform-origin: top;
+  animation: grow linear;
+  animation-timeline: scroll();
+  transition: none;
+}
+
+@keyframes grow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+
+
+
+
+.details-main { p {
+  text-indent: 30px; /* adjust the number as you like */
+   font-family: "CheltenhamLightCond", serif;
+  
+   line-height: 1.2;
+}
+h2{
+   margin-left: -24px;
+   line-height: 1.4;
+   text-align: left;
+  text-align-last: left;
+  margin: 8px 0 8px 0;
+}
+h3{
+   font-family: "Univers65BoldOblique", sans-serif;
+   font-size: 30px;
+   line-height: 1.2;
+    text-align: left;
+  text-align-last: left;
+  margin: 8px 0 8px 0;
+}
+
+h4{
+  font-family: "Univers-Black", sans-serif;
+  font-size: 25px;
+  margin-left: -24px;
+   line-height: 1.4;
+   text-align: left;
+  text-align-last: left;
+  margin: 8px 0 8px 0;
+}
+h5{
+  font-family: "Univers65BoldOblique", sans-serif;
+   font-size: 20px;
+   line-height: 1.5;
+}
+
+}
+
+.details-main .content {
+    margin-left:-27px; /* shift content 40px to the left */
+}
+
+.details-images img {
+  width: 100%;
+  display: block;
+  margin-bottom: 24px;
+  object-fit: cover;
+}
+
+.details-marquee {
+  width: 100vw;
+ 
+  margin-left: calc(50% - 50vw); /* break out of page width */
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+}
+.details-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: details-marquee-loop 20s linear infinite;
+}
+.details-marquee-track span {
+  white-space: nowrap;
+  font-family: "Univers-Black", sans-serif;
+  font-size: 32px;
+ 
+}
+
+
+@keyframes details-marquee-loop {
+  from {
+    transform: translateX(0) rotate(0deg); /* start at left */
+  }
+  to {
+    transform: translateX(-100vw) rotate(0deg); /* move full viewport width to the left */
+  }
+}
+
+
+
+
+
+
+.details-images {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 3000px;        /* remove height restriction */
+  max-width: 400px;
+  height: 2000px;            /* take full height of parent */
+  overflow: visible;       /* no scroll */
+  transition: all 0.5s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep images responsive */
+.details-images img {
+  width: 100%;
+  height: auto;            /* let height scale automatically */
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+/* hover: float over everything with slant */
+
+.details-images:hover {
+  position: fixed;            
+  top: 20%;                     /* center vertically */
+  left: 50%;                    /* center horizontally */
+  width: 450px;                 /* enough width for slant */
+  max-height: 100vh;             /* allow scrolling */
+  transform: rotate(-15deg) scale(1.4); /* slant + enlarge */
+  z-index: 9999;   
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);             
+  overflow-y: auto;            
+  padding: 10px;
+  border-radius: 2px;
+  transition: all 0.5s ease;
+  padding: 95px 40px;        /* makes background taller & wider */
+  margin: -95px -40px;       /* keeps images in same visual place */
+}
+
+.details-images.bg-pink:hover {
+  background-color: rgba(175, 200, 255, 0.95);}
+
+.details-images.bg-green:hover {
+  background-color: rgba(175,255,200,.95);
+}
+.details-images.bg-blue:hover {
+  background-color: rgba(255, 175, 220, 0.95);
+}
+
+
+/* make all text in details italic while hovering */
+.details-images:hover ~ .details-main,
+.details-images:hover ~ .details-meta {
+  font-style: italic;
+  transition: font-style 0.3s ease;
+}
+
+
+.details-images img {
+  width: 100%;          /* full width of column */
+  height: 350px;        /* fixed height for all images */
+  object-fit: cover;    /* ensures image fills the box and is cropped nicely */
+  display: block;
+  border-radius: 4px;
+}
+
+
+
+
+
+
+/* DETAILS */
+.details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  margin-top: 10px;
+  width: 100%;           /* full width */
+  box-sizing: border-box;
+  padding: 0 24px;       /* optional horizontal padding */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Each detail row */
+.detail-item {
+  display: flex;
+  flex-direction: row;    
+  gap: 15px;              
+  align-items: flex-start;
+}
+
+.detail-item img {
+  width: 70px;           
+  max-width: 70px;
+  height: auto;
+  object-fit: cover;
+}
+
+.detail-item p, .detail-item blockquote {
+  flex: 1;
+  color: rgb(0, 0, 0);
+  font-size: 14px;        
+  line-height: 1.4;
+  margin: 0;
+  text-align: justify;
+  text-align-last: left;
+}
+
+
+
+/* Left and Right Columns */
+.details-left, .details-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: justify;
+  text-align-last: left;
+}
+.details-title {
+  font-size: 50px;       /* big title */
+  font-family: "Univers-Black", sans-serif;
+  margin-bottom: 7px;
+}
+.details-left h2, .details-right h2 {
+  font-family: "Univers-Black", sans-serif;
+  font-size: 30px;
+  margin: 0 ;
+}
+
+.details-left p, .details-right p {
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  text-align: justify;
+  text-align-last: left;
+}
+.details-left p{
+margin: 0 50px 0 20px ;
+}
+.details-right p{
+  margin: 0 40px 0 30px ;
+}
+
+.details-middle .image-row {
+  display: flex;       /* horizontal row */
+  gap: 16px;           /* space between images */
+  margin-left: -80px ;
+}
+
+.details-middle .image-row img {
+  width: 400px;          /* each image takes half of the row */
+  height: 200px;       /* fixed height, adjust as needed */
+  object-fit: cover;   /* keep image ratio and fill */
+  border-radius: 4px;
+}
+
+.details-middle  {
+  display: flex;             /* make it a flex container */
+  margin-bottom: 60px;
+}
+.image-row-center{
+   width: 800px;          /* each image takes half of the row */
+  height: 500px;       /* fixed height, adjust as needed */
+  object-fit: cover;   /* keep image ratio and fill */
+  border-radius: 4px;
+  display: flex;             /* make it a flex container */
+  margin-left: 80px ;
+  margin-bottom: 60px;
+}
+
+/* responsive boxes  */
+
+
+
+
+
+
+/* --------------------------
+   Large Screens (1920px+)
+---------------------------- */
+@media screen and (min-width: 1920px) {
+
+  /* Container adjustments */
+  .titles-container {
+    width: 98%;       /* more space for large screens */
+    margin: 80px auto 50px auto;
+    gap: 50px;         /* increase spacing */
+  }
+
+  .title-item-triggger {
+    grid-template-columns: 1fr 300px 5fr; /* more space for middle content */
+    gap: 0 40px;
+  }
+
+  .title-item-trigger-header {
+    width: 450px;       /* increase header width */
+    font-size: 40px;
+  }
+
+  .title-item-trigger-content {
+    width: 800px;
+    font-size: 22px;
+  }
+
+  .title-item-trigger-title {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+
+  .title-item-trigger-sneak {
+    font-size: 20px;
+  }
+
+  .title-item-trigger-thumbnail {
+    width: 300px;
+    height: 200px;
+    margin-left: 20px;
+  }
+
+  .title-item-trigger-info {
+    font-size: 18px;
+  }
+
+  /* Details Section */
+  .details-grid {
+    gap: 60px;
+  }
+
+  .details-main {
+    grid-template-columns: 60px 1fr;
+    max-height: 1200px;
+  }
+
+  .details-images {
+    max-width: 600px;
+    height: auto;
+  }
+
+  .details-images img {
+    height: 500px;
+  }
+
+  .details-middle .image-row img {
+    width: 600px;
+    height: 300px;
+  }
+
+  .image-row-center {
+    width: 1200px;
+    height: 600px;
+    margin-left: 120px;
+  }
+
+  .details-left p {
+    margin: 0 80px 0 40px;
+  }
+
+  .details-right p {
+    margin: 0 60px 0 50px;
+  }
+
+  /* Vertical text in meta columns */
+  .meta-title {
+    font-size: 28px;
+  }
+
+  .meta-col h2 {
+    font-size: 28px;
+  }
+
+  .meta-col h3 {
+    font-size: 20px;
+  }
+
+  .meta-col p {
+    font-size: 16px;
+  }
+
+  /* Marquee */
+  .details-marquee-track span {
+    font-size: 48px;
+  }
+}
+
+/* --------------------------
+  
+
+
+
+
+/* subscribtion */
+/* SECTION CONTAINER */
+.page-section {
+  width: 90vw;          /* container width */
+  margin: 0 auto;       /* center horizontally */
+  padding: 80px 0;      /* less vertical padding for tighter layout */
+  box-sizing: border-box;
+}
+
+/* PAGE TITLE */
+.page-title {
+  font-family: "Univers-Black", sans-serif;
+  font-size: 60px;      /* adjust as needed */
+  margin: 0 0 30px 0;   /* remove horizontal margin, reduce bottom spacing */
+  text-align: left;     /* align to left */
+  width: 100%;          /* full width for left alignment */
+}
+
+/* LINE UNDER TITLE */
+.line {
+  width: 100%;
+  height: 4px;
+  background-color: black;
+  margin: 20px 0;       /* vertical spacing only */
+}
+
+/* COLUMNS CONTAINER */
+.columns-container {
+  display: flex;
+  gap: 50px;            /* increased gap between columns */
+  margin-bottom: 40px;
+}
+
+/* LEFT COLUMN */
+.left-column {
+  flex: 1;              /* smaller column */
+}
+
+.left-column h4 {
+  font-family: "Univers-Black", sans-serif;
+  font-size: 40px;
+  margin: 0 10px 20px 0;  /* spacing below title */
+}
+
+.left-column p {
+  display: inline-flex;      /* inline-flex to align with other content if needed */
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 20px;
+
+  align-items: center;        /* vertically center inline items if needed */
+
+}
+
+/* RIGHT COLUMN */
+.right-column {
+  flex: 2;                /* wider column */
+}
+
+.right-column h2 {
+  font-family: "Univers65BoldOblique", sans-serif;
+  font-size: 40px;
+  margin: 0 0 16px 0;
+}
+
+.right-column p {
+  display: inline-flex;      /* inline-flex for alignment */
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 18px;
+  align-items: left;
+ 
+  margin: 0 0 3px 0;        /* spacing between paragraphs */
+}
+
+/* TINY TEXT */
+.tiny-text p {
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 14px;
+  margin-top: 40px;
+  display: inline-flex;
+  align-items: center;
+}
+
+
+
+
+/* artworks */
+
+.newspaper-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 0.8fr; /* keep different widths */
+  gap: 10px;           /* smaller gap between columns */
+  margin:70px 24px 20px 24px ;        /* less margin overall */
+  font-family: "CheltenhamLightCond", serif;
+}
+
+.column img {
+  height: 200px;      /* fixed height */
+  width: auto;        /* width adjusts proportionally */
+  object-fit: cover;  /* crops extra if needed */
+}
+
+
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;           /* much smaller gap between items in column */
+ 
+}
+
+.column h1 {
+  font-family: "Univers-Black", sans-serif;
+  font-size: 50px;   /* slightly smaller for tight layout */
+  text-align: left;
+  line-height: 1.1;
+  margin: 0px 0 5px 10px ;
+}
+
+.column h2 {
+  font-family: "Univers65BoldOblique", sans-serif; /* your chosen font */
+  font-size: 35px;          /* adjust size as needed */
+  line-height: 1.2;         /* spacing between lines */
+  margin: 0 0 0px 0;     /* space above and below */
+  color: #000;              /* black text */
+  text-align: left;         /* align with left side of column */
+}
+.column h3 {
+  font-family: "CheltenhamStd", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 35px;          /* adjust size as needed */
+  line-height: 1;         /* spacing between lines */
+  margin: 0 0 5px 0;     /* space above and below */
+  color: #000;              /* black text */
+  text-align: left;         /* align with left side of column */
+}
+
+.column p {
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 18px;    /* smaller to save space */
+  line-height: 1.25;
+  margin: 0;
+}
+
+.column img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  object-fit: cover;  /* ensures image fills the width nicely */
+}
+
+/* Optional: captions under images */
+.column img + p {
+  margin-top: 2px;
+  font-size: 18px;
+
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .newspaper-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 800px) {
+  .newspaper-layout {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+}
+
+
+
+
+
+
+/* Wrap all images inside a container for hover effect */
+.column img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 4px;
+filter: grayscale(100%) contrast(1.1) brightness(1);
+ 
+  transition: all 0.5s ease;     /* smooth hover transition */
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover effect: color + background + slant */
+.column img:hover {
+  filter: grayscale(0%);         /* restore color */
+   filter: grayscale(0%) contrast(1.2) brightness(1.05) saturate(1.2);
+  
+  transform: scale(1.1) rotate(-5deg); /* slight enlarge + slant */
+  z-index: 10;                   /* on top */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4); /* floating shadow */
+}
+.column img.halftone {
+  filter: grayscale(100%) contrast(1.2) brightness(1) saturate(1);
+  mix-blend-mode: multiply;
+}
+
+
+/* Optional: colored background on hover depending on column */
+.col-1 img:hover {
+  background-color: rgb(255, 175, 220); /* pinkish */
+}
+
+.col-2 img:hover {
+  background-color: rgb(175, 255, 200); /* greenish */
+}
+
+.col-3 img:hover {
+  background-color: rgb(175, 200, 255); /* blueish */
+}
+
+/* Add a smooth transition for background color too */
+.column img {
+  transition: all 0.5s ease;
+}
+
+/* Optional: make text slightly italic when hovering images */
+.column img:hover ~ h2,
+.column img:hover ~ h3,
+.column img:hover ~ p {
+  font-style: italic;
+  transition: font-style 0.3s ease;
+}
+
+
+
+
+
+
+
+/* ========================================================= */
+/* GLOBAL SAFETY FIXES */
+/* ========================================================= */
+
+.col-left,
+.col-middle,
+.col-right,
+.image-left,
+.image-middle,
+.image-right,
+.vertical-wrapper,
+.right-media {
+  min-width: 0; 
+}
+
+/* ========================================================= */
+/* ---------------- TABLET / IPAD ---------------- */
+/* ========================================================= */
+
+@media (max-width: 1024px) {
+
+  .grid-section {
+    grid-template-columns: 1fr;
+    row-gap: 0; /* spacing handled per column */
+    margin: 10px;
+  }
+
+  /* spacing between stacked columns */
+  .col-left,
+  .col-middle,
+  .col-right {
+    margin-block: 40px;
+  }
+
+  /* ---------------- LEFT COLUMN ---------------- */
+
+  .col-left {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .vertical-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .left-vertical-text {
+    font-size: 34px;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+
+  .side-ticker {
+    max-height: 320px;
+    height: auto;
+  }
+
+  .left-text {
+    font-size: 14px;
+    max-width: 140px;
+    padding-left: 10px;
+  }
+
+  .image-left {
+    width: 48%;
+    height: auto;
+  }
+
+  /* ---------------- MIDDLE COLUMN (SMALLER) ---------------- */
+
+  .col-middle {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .image-middle {
+    width: 70%;
+    max-width: 480px;
+    height: auto;
+  }
+
+  .middle-text {
+    font-size: 15px;
+    max-width: 420px;
+    margin: 10px auto 0;
+    text-align: left;
+  }
+
+  /* ---------------- RIGHT COLUMN ---------------- */
+
+  .col-right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-media {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .image-right {
+    width: 70%;
+    height: auto;
+  }
+
+  .right-vertical-ticker {
+    width: 28px;
+    max-height: 100%;
+  }
+
+  .right-text {
+    margin-top: 14px;
+    font-size: 15px;
+    width: 100%;
+  }
+}
+
+/* ========================================================= */
+/* ---------------- MOBILE ---------------- */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+
+  .grid-section {
+    grid-template-columns: 1fr;
+    margin: 5px;
+  }
+
+  /* tighter spacing on mobile */
+  .col-left,
+  .col-middle,
+  .col-right {
+    margin-block: 28px;
+  }
+
+  /* ---------------- LEFT COLUMN ---------------- */
+
+  .col-left {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .vertical-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-vertical-text {
+    writing-mode: horizontal-tb;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .side-ticker {
+    writing-mode: horizontal-tb;
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .left-text {
+    font-size: 14px;
+    max-width: 100%;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .image-left {
+    width: 100%;
+    height: auto;
+  }
+
+  /* ---------------- MIDDLE COLUMN (SMALLEST) ---------------- */
+
+  .col-middle {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .image-middle {
+    width: 90%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .middle-text {
+    font-size: 14px;
+    max-width: 280px;
+    margin: 8px auto 0;
+    text-align: center;
+  }
+
+  /* ---------------- RIGHT COLUMN ---------------- */
+
+  .right-media {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-right {
+    width: 100%;
+  }
+
+  .right-vertical-ticker {
+    writing-mode: horizontal-tb;
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .right-text {
+    margin-top: 16px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* ---------------- GENERAL TEXT ---------------- */
+
+  .page-header h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+}
+
+
+
+/* ---------------- MICRO SCREENS ---------------- */
+@media (max-width: 360px) {
+
+  /* GLOBAL SPACING */
+  .grid-section {
+    row-gap: 24px;
+    margin: 4px;
+  }
+
+  /* ADD TOP + BOTTOM GAP BETWEEN COLUMNS */
+  .col-left,
+  .col-middle,
+  .col-right {
+    margin-block: 20px;
+  }
+
+  /* ---------------- LEFT COLUMN ---------------- */
+  .left-vertical-text {
+    font-size: 20px;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .side-ticker {
+    max-width: 280px;
+    height: auto;
+  }
+
+  .left-text {
+    font-size: 13px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .image-left {
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  /* ---------------- MIDDLE COLUMN ---------------- */
+  .col-middle {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .image-middle {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+  }
+
+  .middle-text {
+    font-size: 13px;
+    max-width: 260px;
+    margin: 6px auto 0;
+    text-align: center;
+  }
+
+  /* ---------------- RIGHT COLUMN ---------------- */
+  .right-media {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .image-right {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .right-vertical-ticker {
+    writing-mode: horizontal-tb;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .right-text {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  /* ---------------- HEADERS ---------------- */
+  .page-header h1 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+}
+
+
+
+
+
+/* ================= RESPONSIVE ================= */
+
+/* ----------- TABLET / IPAD (1024px and below) ----------- */
+@media (max-width: 1024px) {
+  .newspaper-grid {
+    grid-template-columns: 1fr; /* stack into one column */
+    gap: 20px;                  /* spacing between items */
+  }
+
+  .headline-main, 
+  .image-feature,
+  .headline-secondary,
+  .headline-small {
+    grid-column: 1 / -1;        /* full width */
+    grid-row: auto;             /* auto height */
+  }
+
+  .headline-inline-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .headline-text-block {
+    max-width: 100%;            /* full width */
+  }
+
+  .headline-title {
+    font-size: 24px;
+  }
+
+  .headline-subtitle {
+    font-size: 20px;
+  }
+
+  .headline-text,
+  .newspaper-grid p {
+    font-size: 14px;
+  }
+
+  .headline-small h3 {
+    font-size: 14px;
+  }
+
+  .image-content {
+    height: auto;               /* scale image automatically */
+  }
+
+  .full-width-title {
+    font-size: 40px;
+    margin-top: -20px;
+  }
+}
+
+/* ----------- MOBILE (768px and below) ----------- */
+@media (max-width: 768px) {
+  .newspaper-grid {
+    grid-template-columns: 1fr;  /* one column */
+    gap: 15px;                   /* reduce spacing */
+  }
+
+  .headline-main,
+  .image-feature,
+  .headline-secondary,
+  .headline-small {
+    grid-column: 1 / -1;
+  }
+
+  .headline-inline-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .headline-title {
+    font-size: 20px;
+  }
+
+  .headline-subtitle {
+    font-size: 18px;
+  }
+
+  .headline-text,
+  .newspaper-grid p {
+    font-size: 13px;
+  }
+
+
+  .image-content {
+    width: 100%;
+    height: auto;               /* scale proportionally */
+  }
+
+  .full-width-title {
+    font-size: 30px;
+    margin-top: -10px;
+    padding-left: 10px;
+  }
+
+  .headline-text-block {
+    padding: 0 10px;            /* small padding inside column */
+  }
+}
+
+/* ----------- SMOOTH RESIZE TRANSITION ----------- */
+.newspaper-grid,
+.headline-text-block,
+.image-content,
+.headline-inline-image,
+.full-width-title {
+  transition: all 0.3s ease;     /* smooth responsive changes */
+}
+
+
+
+
+
+/* ================= SMALL HEADLINES ================= */
+.headline-small h3 {
+  font-family: "UniversBlack", sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0 0 6px 0;
+  transition: all 0.3s ease;
+}
+
+/* ================= IMAGE CAPTIONS ================= */
+.image-caption {
+  font-family: "PermanentMarker", sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000;
+  margin-top: -2px;
+  transition: all 0.3s ease;
+}
+
+/* ================= INLINE HEADLINE IMAGE ================= */
+.headline-inline-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+/* ================= HEADLINE TEXT BLOCK ================= */
+.headline-text-block {
+  display: flex;
+  flex-direction: column;
+  max-width: 520px;
+  transition: all 0.3s ease;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* ----------- TABLET / IPAD (1024px and below) ----------- */
+@media (max-width: 1024px) {
+  .headline-small h3 {
+    font-size: 14px;
+  }
+
+  .image-caption {
+    font-size: 18px;
+  }
+
+  .headline-inline-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .headline-text-block {
+    max-width: 400px;
+  }
+}
+
+/* ----------- MOBILE (768px and below) ----------- */
+@media (max-width: 768px) {
+  .headline-small h3 {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .image-caption {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .headline-inline-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .headline-text-block {
+    max-width: 300px;
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* ----------- MICRO SCREENS (≤ 480px) ----------- */
+@media (max-width: 480px) {
+  .headline-small h3 {
+    font-size: 10px;
+  }
+
+  .image-caption {
+    font-size: 14px;
+  }
+
+  .headline-inline-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .headline-text-block {
+    max-width: 200px;
+  }
+}
+
+
+
+
+
+
+
+/* ================= FEATURE BASE STYLES ================= */
+.feature-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 10px 20px 30px 20px;
+  width: 95vw;
+  box-sizing: border-box;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.feature-item {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.feature-link {
+  display: grid;
+  grid-template-columns: 1fr 250px 4fr;
+  gap: 0 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* ---------------- FEATURE THUMBNAIL ---------------- */
+.feature-thumbnail {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 16 / 9; /* slimmer than before */
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.feature-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+/* ---------------- FEATURE CONTENT ---------------- */
+.feature-content {
+  width: 680px;
+  min-width: 280px; /* smaller minimum width */
+  transition: all 0.3s ease;
+}
+
+.feature-header {
+  width: 340px;
+  min-width: 100px;
+  transition: all 0.3s ease;
+}
+
+.feature-super {
+  font-family: "Univers-Black", sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  margin: 5px 0 10px 0;
+  transition: all 0.3s ease;
+}
+
+.feature-title {
+  font-family: "Univers-Black", sans-serif;
+  font-size: 35px;
+  line-height: 1.15;
+  margin: 0 0 10px 0;
+  transition: all 0.3s ease;
+}
+
+.feature-sneak {
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: justify;
+  text-align-last: left;
+  margin: 0 0 24px 0;
+  transition: all 0.3s ease;
+}
+
+.feature-info {
+  font-family: "Permanent Marker", cursive;
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  transition: all 0.3s ease;
+}
+
+.feature-quote {
+  font-family: "Univers-Black", sans-serif;
+  font-size: 30px;
+  line-height: 1.15;
+  margin: 0 0 5px 0;
+  transition: all 0.3s ease;
+}
+
+.feature-excerpt {
+  font-family: "CheltenhamLightCond", serif;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: justify;
+  text-align-last: left;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+/* ================= FEATURE RESPONSIVE ================= */
+
+/* ----------- TABLET / IPAD (1024px and below) ----------- */
+@media (max-width: 1024px) {
+  .feature-link {
+    grid-template-columns: 1fr; /* stack thumbnail + content */
+    gap: 15px;
+  }
+
+  .feature-thumbnail {
+    max-width: 440px;
+    aspect-ratio: 4 / 3; /* slightly taller for tablet */
+    margin: 0 auto;
+  }
+
+  .feature-content { width: 100%; }
+  .feature-header { width: 100%; }
+
+  .feature-super { font-size: 24px; }
+  .feature-title { font-size: 28px; }
+  .feature-sneak, .feature-excerpt { font-size: 16px; }
+  .feature-info { font-size: 14px; }
+  .feature-quote { font-size: 24px; }
+}
+
+/* ----------- MOBILE (768px and below) ----------- */
+@media (max-width: 768px) {
+  .feature-container {
+    gap: 25px;
+    margin: 10px 10px 20px 10px;
+    width: 95vw;
+  }
+
+  .feature-link { grid-template-columns: 1fr; gap: 10px; }
+
+  .feature-thumbnail {
+    max-width: 340px;
+    aspect-ratio: 16 / 10; /* shorter on mobile */
+  }
+
+  .feature-content { width: 100%; }
+
+  .feature-super { font-size: 20px; }
+  .feature-title { font-size: 24px; }
+  .feature-sneak, .feature-excerpt { font-size: 14px; }
+  .feature-info { font-size: 13px; }
+  .feature-quote { font-size: 20px; }
+}
+
+/* ----------- SMALL MOBILE (≤ 360px) ----------- */
+@media (max-width: 360px) {
+  .feature-thumbnail {
+    max-width: 280px;
+    aspect-ratio: 16 / 9; /* very slim */
+  }
+
+  .feature-title { font-size: 20px; line-height: 1.15; }
+  .feature-super { font-size: 15px; }
+  .feature-sneak, .feature-excerpt { font-size: 13px; }
+}
+
+/* ----------- MICRO SCREENS (≤ 320px) ----------- */
+@media (max-width: 320px) {
+  .feature-container {
+    margin: 6px;
+    width: 96vw;
+  }
+
+  .feature-thumbnail { max-width: 240px; }
+
+  .feature-title { font-size: 18px; }
+  .feature-super { font-size: 15px; }
+}
+
+/* ----------- SMOOTH TRANSITION ----------- */
+.feature-container,
+.feature-item,
+.feature-link,
+.feature-thumbnail,
+.feature-content,
+.feature-header,
+.feature-super,
+.feature-title,
+.feature-sneak,
+.feature-info,
+.feature-quote,
+.feature-excerpt {
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+/* ---------------- RESPONSIVE TITLES ---------------- */
+
+/* Tablet / iPad */
+@media (max-width: 1024px) {
+  .title-item-triggger {
+    display: flex;             /* switch from grid to flex */
+    flex-direction: column;    /* stack items vertically */
+    gap: 15px;                 /* space between image and text */
+  }
+
+  .title-item-trigger-thumbnail {
+    width: 100%;               /* full width of container */
+    height: auto;              /* scale height automatically */
+    margin: 0;
+  }
+
+  .title-item-trigger-content {
+    width: 100%;               /* full width for text content */
+    min-width: auto;
+  }
+
+  .title-item-trigger-super,
+  .title-item-trigger-title,
+  .title-item-trigger-sneak,
+  .title-item-trigger-info,
+  .title-item-trigger-quote,
+  .title-item-trigger-excerpt {
+    text-align: left;          /* align all text left */
+  }
+
+  .title-img {
+    width: 100%;               /* scale image to full width */
+    min-width: auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .titles-container {
+    margin: 50px 15px 30px 15px;  /* smaller margins */
+    gap: 20px;                     /* smaller gap between items */
+  }
+
+  .title-item-triggger {
+    gap: 12px;                     /* tighter spacing */
+  }
+
+  .title-item-trigger-thumbnail img,
+  .title-img {
+    width: 100%;
+    height: auto;                  /* scale images for mobile */
+  }
+
+  .title-item-trigger-super {
+    font-size: 24px;
+  }
+
+  .title-item-trigger-title {
+    font-size: 28px;
+  }
+
+  .title-item-trigger-sneak,
+  .title-item-trigger-excerpt {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .title-item-trigger-info,
+  .title-item-trigger-quote {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ================= RESPONSIVE DETAILS GRID ================= */
+
+/* ----------- TABLET / IPAD (1024px and below) ----------- */
+@media (max-width: 1024px) {
+
+  .details-grid {
+    display: flex;
+    flex-direction: column; /* stack all sections vertically */
+    gap: 30px;
+    max-height: none;
+  }
+
+  .details-main,
+  .details-images,
+  .details-meta {
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .details-main {
+    grid-template-columns: 1fr; /* remove vertical line column */
+    margin-left: 0;
+  }
+
+  .scroll-line {
+    display: none; /* remove vertical line on smaller screens */
+  }
+
+  .details-meta-inner {
+    writing-mode: horizontal-tb; /* horizontal text for readability */
+    text-orientation: initial;
+    margin: 0;
+    font-size: 16px;
+    top: auto;
+    position: relative;
+  }
+
+  .meta-columns {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .meta-col {
+    writing-mode: horizontal-tb;
+    max-height: none;
+  }
+
+  .meta-title {
+    writing-mode: horizontal-tb;
+    font-size: 18px;
+  }
+
+  .details-images img {
+    width: 100%;
+    height: auto; /* let height scale automatically */
+  }
+
+  .details-marquee-track {
+    font-size: 24px;
+  }
+}
+
+/* ----------- MOBILE (768px and below) ----------- */
+@media (max-width: 768px) {
+
+  .details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: none;
+  }
+
+  .details-main,
+  .details-images,
+  .details-meta {
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .details-main {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+  }
+
+  .scroll-line {
+    display: none;
+  }
+
+  .details-meta-inner {
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+    margin: 0;
+    font-size: 14px;
+    top: auto;
+    position: relative;
+  }
+
+  .meta-columns {
+    flex-direction: column; /* stack columns vertically */
+    gap: 6px;
+  }
+
+  .meta-col {
+    writing-mode: horizontal-tb;
+    max-height: none;
+  }
+
+  .meta-title {
+    writing-mode: horizontal-tb;
+    font-size: 16px;
+  }
+
+  .details-images img {
+    width: 100%;
+    height: auto;
+  }
+
+  .details-marquee-track {
+    font-size: 20px;
+  }
+
+  /* Hover slant effect disabled on mobile for UX */
+  .details-images:hover {
+    transform: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Text style reset */
+  .details-images:hover ~ .details-main,
+  .details-images:hover ~ .details-meta {
+    font-style: normal;
+  }
+}
+
+/* ----------- SMOOTH RESIZE TRANSITION ----------- */
+.details-grid,
+.details-main,
+.details-images,
+.details-meta,
+.details-images img,
+.details-meta-inner {
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+
+/* Apply to all pages */
+.top-nav {
+  width: 100%;
+  font-family: 'UniversBlack', monospace;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-nav {
+    font-size: 18px;
+  }
+}
+/* ---------------- SUBSCRIPTION RESPONSIVE ---------------- */
+
+/* ----------- TABLET / IPAD (1024px and below) ----------- */
+@media (max-width: 1024px) {
+  .page-section {
+    padding: 100px 20px 20px 20px; /* more top padding */
+    margin-top: 60px;              /* increased top margin from previous content */
+  }
+
+  .columns-container {
+    flex-direction: column;   /* stack columns vertically */
+    gap: 40px;                /* larger gap between stacked columns */
+    margin-top: 40px;         /* top margin between sections */
+  }
+
+  .left-column,
+  .right-column {
+    flex: 1;                  /* full width */
+  }
+
+  .left-column h4,
+  .right-column h2 {
+    font-size: 32px;          /* scale down headings */
+    margin-top: 30px;         /* larger top margin for headings */
+  }
+
+  .left-column p,
+  .right-column p {
+    font-size: 16px;          /* scale down paragraph text */
+    margin-top: 15px;         /* larger spacing above paragraph */
+  }
+
+  .tiny-text p {
+    font-size: 12px;
+    margin-top: 25px;
+  }
+}
+
+/* ----------- MOBILE (768px and below) ----------- */
+@media (max-width: 768px) {
+  .page-section {
+    padding: 70px 15px 15px 15px;   /* more top padding */
+    margin-top: 50px;               /* increased top margin */
+  }
+
+  .page-title {
+    font-size: 40px;                 /* scale down title */
+    margin-top: 30px;                /* larger spacing above title */
+  }
+
+  .line {
+    margin: 20px 0;                  /* more vertical spacing */
+  }
+
+  .columns-container {
+    gap: 30px;                        /* larger gap */
+    margin-top: 30px;                 /* top margin for columns */
+  }
+
+  .left-column h4,
+  .right-column h2 {
+    font-size: 28px;                  /* smaller headings */
+    margin-top: 25px;                 /* more spacing above headings */
+  }
+
+  .left-column p,
+  .right-column p {
+    font-size: 14px;                  /* smaller paragraph text */
+    margin-top: 12px;                 /* spacing above paragraph */
+  }
+
+  .tiny-text p {
+    font-size: 10px;
+    margin-top: 20px;
+  }
+}
+
+/* ----------- MICRO SCREENS (480px and below) ----------- */
+@media (max-width: 480px) {
+  .page-section {
+    padding: 60px 10px 10px 10px;   /* increased top padding */
+    margin-top: 40px;                /* more space above section */
+  }
+
+  .page-title {
+    font-size: 28px;                 /* smallest readable title */
+    text-align: center;              /* center for small screens */
+    margin-top: 25px;                /* top margin for title */
+  }
+
+  .line {
+    margin: 15px 0;                  /* more vertical spacing */
+  }
+
+  .columns-container {
+    flex-direction: column;          /* keep stacked */
+    gap: 25px;                       /* larger gap */
+    margin-top: 25px;                /* top margin for spacing */
+  }
+
+  .left-column,
+  .right-column {
+    flex: 1;                         /* full width */
+    text-align: center;              /* center text for micro screens */
+  }
+
+  .left-column h4,
+  .right-column h2 {
+    font-size: 22px;                 /* smallest headings */
+    margin-top: 20px;                /* larger top margin */
+  }
+
+  .left-column p,
+  .right-column p {
+    font-size: 12px;                 /* smallest paragraph text */
+    line-height: 1.3;                /* keep readability */
+    margin-top: 10px;                /* spacing above paragraph */
+  }
+
+  .tiny-text p {
+    font-size: 9px;
+    margin-top: 15px;
+  }
+}
